@@ -8,5 +8,6 @@ $ artillery -v
 # install dependencies
 $ npm run install
 
+# updated ENDPOINT in both faker.js and test.yml file
 # run test!
 $ artillery run test.yml
