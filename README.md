@@ -3,7 +3,7 @@
 $ npm install -g artillery
 
 # check that installation succeeded
-$ artillery -v
+$ artillery version
 
 # install dependencies
 $ npm run install
