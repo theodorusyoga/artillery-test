@@ -1,22 +1,26 @@
 config:
   target: "ENDPOINT"
+  plugins:
+    expect: {}
   processor: "./faker.js"
   phases:
     # this mean run for 10 seconds, each second 1 user.
     # - duration: 10
     #   arrivalRate: 1
     # Create 20 virtual users in 60 seconds (approximately one every 3 seconds):
-    - duration: 60
-      arrivalRate: 10
+    - duration: 3
+      arrivalRate: 1
 scenarios:
   - flow:
       - function: "fakeIt"
       - post:
-          url: "/server/api/webchat"
+          url: "/api/webchat"
           json:
             id: "{{ id }}"
             sender: "{{ sender }}"
             recipient: "{{ recipient }}"
             postback: "{{ postback }}"
+          expect:
+            - statusCode: 200
         # Print the data we're sending while debugging the script:
       - log: "Sent a request to /server/api/webchat with {{ id }}..."

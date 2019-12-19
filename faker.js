@@ -22,8 +22,8 @@ function fakeIt(userContext, events, done) {
         id: 'ENDPOINT'
     }
     const postback = {
-        event: "handover_livechat_start",
-        data: true,
+        event: "goto",
+        data: "handover_livechat_start",
         text: "Proceed",
         isPreview: false
     }
